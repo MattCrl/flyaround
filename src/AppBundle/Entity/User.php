@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User
 {
+
+    public function __toString()
+    {
+        return $this->firstName . "  " . $this->lastName;
+    }
+
     /**
      * @var int
      *
@@ -21,6 +27,10 @@ class User
      */
     private $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="reviewAuthor")
+     */
+    private $reviewsAuthor;
     /**
      * @var string
      *
@@ -248,5 +258,45 @@ class User
     {
         return $this->isACertifiedPilot;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->reviewsAuthor = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add reviewsAuthor
+     *
+     * @param \AppBundle\Entity\Review $reviewsAuthor
+     *
+     * @return User
+     */
+    public function addReviewsAuthor(\AppBundle\Entity\Review $reviewsAuthor)
+    {
+        $this->reviewsAuthor[] = $reviewsAuthor;
+
+        return $this;
+    }
+
+    /**
+     * Remove reviewsAuthor
+     *
+     * @param \AppBundle\Entity\Review $reviewsAuthor
+     */
+    public function removeReviewsAuthor(\AppBundle\Entity\Review $reviewsAuthor)
+    {
+        $this->reviewsAuthor->removeElement($reviewsAuthor);
+    }
+
+    /**
+     * Get reviewsAuthor
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReviewsAuthor()
+    {
+        return $this->reviewsAuthor;
+    }
+}
