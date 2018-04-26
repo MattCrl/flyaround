@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Review
 {
+    public function __toString()
+    {
+        return '' . $this->getId();
+    }
+
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)

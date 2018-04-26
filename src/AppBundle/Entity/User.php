@@ -19,6 +19,11 @@ class User
     }
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="pilot")
+     */
+    private $pilots;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -298,5 +303,39 @@ class User
     public function getReviewsAuthor()
     {
         return $this->reviewsAuthor;
+    }
+
+    /**
+     * Add pilot
+     *
+     * @param \AppBundle\Entity\Flight $pilot
+     *
+     * @return User
+     */
+    public function addPilot(\AppBundle\Entity\Flight $pilot)
+    {
+        $this->pilots[] = $pilot;
+
+        return $this;
+    }
+
+    /**
+     * Remove pilot
+     *
+     * @param \AppBundle\Entity\Flight $pilot
+     */
+    public function removePilot(\AppBundle\Entity\Flight $pilot)
+    {
+        $this->pilots->removeElement($pilot);
+    }
+
+    /**
+     * Get pilots
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPilots()
+    {
+        return $this->pilots;
     }
 }
