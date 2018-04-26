@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Flight
 {
+    public function __toString()
+    {
+        return $this->departure . ' ' . $this->arrival;
+    }
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Site", inversedBy="departures")
@@ -30,6 +34,11 @@ class Flight
      * @ORM\JoinColumn(nullable=false)
      */
     private $arrival;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="flight")
+     */
+    private $flights;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlaneModel", inversedBy="planes")
@@ -336,5 +345,46 @@ class Flight
     public function getPlane()
     {
         return $this->plane;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->flights = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add flight
+     *
+     * @param \AppBundle\Entity\Reservation $flight
+     *
+     * @return Flight
+     */
+    public function addFlight(\AppBundle\Entity\Reservation $flight)
+    {
+        $this->flights[] = $flight;
+
+        return $this;
+    }
+
+    /**
+     * Remove flight
+     *
+     * @param \AppBundle\Entity\Reservation $flight
+     */
+    public function removeFlight(\AppBundle\Entity\Reservation $flight)
+    {
+        $this->flights->removeElement($flight);
+    }
+
+    /**
+     * Get flights
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFlights()
+    {
+        return $this->flights;
     }
 }
