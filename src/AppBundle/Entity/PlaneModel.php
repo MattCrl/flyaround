@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaneModel
 {
+    public function __toString()
+    {
+        return $this->model;
+    }
+
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="plane")
      */

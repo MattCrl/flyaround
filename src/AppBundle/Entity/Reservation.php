@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reservation
 {
+    public function __toString()
+    {
+        return $this->id . ' ';
+    }
+
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="passengers")
      * @ORM\JoinColumn(nullable=false)

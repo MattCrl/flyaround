@@ -25,6 +25,9 @@
                         <li>
                             <a href="{{ path('reservation_show', { 'id': reservation.id }) }}">show</a>
                         </li>
+                        <li>
+                            <a href="{{ path('reservation_edit', { 'id': reservation.id }) }}">edit</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
@@ -32,5 +35,9 @@
         </tbody>
     </table>
 
-    
+    <ul>
+        <li>
+            <a href="{{ path('reservation_new') }}">Create a new reservation</a>
+        </li>
+    </ul>
 {% endblock %}
