@@ -9,8 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 
-
-
 /**
  * Review controller.
  *
@@ -30,11 +28,8 @@ class ReviewController extends Controller
 
         $reviews = $em->getRepository('AppBundle:Review')->findAll();
 
-        return $this->render('review/index.html.twig', ['reviews' => $reviews]
-        );
-
+        return $this->render('review/index.html.twig', ['reviews' => $reviews]);
     }
-
 
     /**
      * Add a new review.
