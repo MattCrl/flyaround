@@ -1,0 +1,35 @@
+{# app/Resources/views/default/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Reviews List</h1>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>User Rated</th>
+            <th>Review Author</th>
+            <th>Text</th>
+            <th>Note</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for review in reviews %}
+            <tr>
+                <td>{{ review.id }}</td>
+                <td>{{ review.userRated }}</td>
+                <td>{{ review.reviewAuthor }}</td>
+                <td>{{ review.text }}</td>
+                <td>{{ review.note }}</td>
+            </tr>
+        {% else %}
+            <h2>No reviews to list !</h2>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
