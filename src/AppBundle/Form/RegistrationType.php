@@ -14,6 +14,7 @@ class RegistrationType extends AbstractType
         $builder->add('lastName');
         $builder->add('phoneNumber');
         $builder->add('birthDate');
+        $builder->add('isACertifiedPilot');
     }
 
     public function getParent()
