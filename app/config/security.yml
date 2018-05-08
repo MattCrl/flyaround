@@ -12,7 +12,7 @@ security:
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:
-            memory: ~;
+            memory: ~
 
         fos_userbundle:
             id: fos_user.user_provider.username
@@ -21,7 +21,7 @@ security:
         main:
             pattern: ^/
             form_login:
-                provider: fos_userbundle
+            provider: fos_userbundle
             logout:       true
             anonymous:    true
             # activate different ways to authenticate
@@ -38,7 +38,7 @@ security:
             security: false
 
     access_control:
-    - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/admin/, role: ROLE_ADMIN }
+            - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/admin/, role: ROLE_ADMIN }
