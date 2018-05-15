@@ -4,34 +4,18 @@
     <div id="wrapper">
         <div id="container">
             <h1>Bienvenue sur Flyaround !</h1>
+
             <h2>Choix possibles :</h2>
-            <ul>
-                <li>
-                    <a href="{{ path('planemodel_index') }}">Voir tous les avions</a>
-                </li>
-                <li>
-                    <a href="{{ path('reservation_index') }}">Voir toutes les reservations</a>
-                </li>
-                <li>
-                    <a href="{{ path('flight_index') }}">Voir tous les vols</a>
-                </li>
-                <li>
-                    <a href="{{ path('site_index') }}">Voir tous les terrains</a>
-                </li>
-                <li>
-                    <a href="{{ path('review_index') }}">Voir tous les avis utilisateurs</a>
-                </li>
+            <div class="list-group">
+                <a href="{{ path('planemodel_index') }}" class="list-group-item">Voir tous les avions</a>
+                <a href="{{ path('reservation_index') }}" class="list-group-item">Voir toutes les reservations</a>
+                <a href="{{ path('flight_index') }}" class="list-group-item">Voir tous les vols</a>
+                <a href="{{ path('site_index') }}" class="list-group-item">Voir tous les terrains</a>
+                <a href="{{ path('review_index') }}" class="list-group-item">Voir tous les avis utilisateurs</a>
+            </div>
 
-            </ul>
-
-            <ul>
-                <li>
-                    <p>Si vous n'êtes pas encore connecté, veuillez vous identifier : <a href="/login">S'identifier</a></p>
-                </li>
-                <li>
-                    <p>Si vous n'êtes pas encore inscrit, veuillez vous inscrire : <a href="/register">S'inscrire</a></p>
-                </li>
-            </ul>
+            <a href="/login" class="btn btn-success" role="button">S'identifier</a>
+            <a href="/register" class="btn btn-primary" role="button">Inscription</a>
 
 
         </div>

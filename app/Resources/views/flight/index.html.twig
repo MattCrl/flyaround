@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Flights list</h1>
 
-    <table>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -41,9 +41,8 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('flight_new') }}">Create a new flight</a>
-        </li>
-    </ul>
+    <a href="/" class="btn btn-warning" role="button">Return to homepage</a>
+    <a href="{{ path('flight_new') }}" class="btn btn-primary" role="button">Create a new flight</a>
+
+
 {% endblock %}
