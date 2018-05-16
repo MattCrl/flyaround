@@ -2,7 +2,7 @@
 
 $brand-primary: darken(#000af5, 10%);
 body{
-  background-color: #eaeaea;
+  background-color: #f3f3f3;
 }
 
 h1 {
@@ -10,24 +10,24 @@ h1 {
 }
 
 .navbar-default {
-  background-color: #03004d;
+  background-color: #ded2de;
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
   .navbar-brand {
-    color: white;
+    color: black;
     font-weight: bold;
     &:hover {
-      color: #bfbfbf;
+      color: white;
     }
   }
   .navbar-nav {
     li {
       a {
-        color: white;
+        color: black;
         font-weight: bold;
         &:hover {
-          color: #bfbfbf;
+          color: white;
         }
       }
     }
