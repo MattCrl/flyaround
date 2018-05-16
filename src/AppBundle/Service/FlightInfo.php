@@ -65,10 +65,18 @@ class FlightInfo
 
     /**
      * Travel time between Departure and Arrival of the flight
+     * @param float $distance Distance
+     * @param float $planespeed Cruisespeed
      *
      */
-    public function getTime()
+    public function getTime($distance, $planespeed)
     {
-
+        // travel time = Distance / plane speed
+        $travelTime = $distance / $planespeed;
+        $travelTime *= 60;
+        $format = '%02dh%02dmin';
+        $hours = floor($travelTime / 60);
+        $minutes = ($travelTime % 60);
+        return sprintf($format, $hours, $minutes);
     }
 }

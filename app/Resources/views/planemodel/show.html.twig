@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Planemodel</h1>
 
-    <table>
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -32,17 +32,12 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('planemodel_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('planemodel_edit', { 'id': planeModel.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a href="/" class="btn btn-warning" role="button">Return to homepage</a>
+    <a href="{{ path('planemodel_index') }}" class="btn btn-warning" role="button">Back to the list</a>
+    <a href="{{ path('planemodel_edit', { 'id': planeModel.id }) }}" class="btn btn-danger" role="button">Edit this plane</a>
+
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Delete" class="btn btn-danger">
+    {{ form_end(delete_form) }}
+
 {% endblock %}
