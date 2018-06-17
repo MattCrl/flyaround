@@ -6,16 +6,63 @@
             <h1>Bienvenue sur Flyaround !</h1>
 
             <h2>Choix possibles :</h2>
-            <div class="list-group">
-                <a href="{{ path('planemodel_index') }}" class="list-group-item">Voir tous les avions</a>
-                <a href="{{ path('reservation_index') }}" class="list-group-item">Voir toutes les reservations</a>
-                <a href="{{ path('flight_index') }}" class="list-group-item">Voir tous les vols</a>
-                <a href="{{ path('site_index') }}" class="list-group-item">Voir tous les terrains</a>
-                <a href="{{ path('review_index') }}" class="list-group-item">Voir tous les avis utilisateurs</a>
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://k6s3v6r4.ssl.hwcdn.net/pictures/751/751247.jpg" alt="plane">
+                        <div class="caption">
+                            <h3>Liste des avions</h3>
+                            <p><a href="{{ path('planemodel_index') }}" class="btn btn-primary" role="button">Voir les avions</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://lireauhavre.fr/sites/default/files/c_treenabeena_-_fotolia.com_.jpg" alt="réservations">
+                        <div class="caption">
+                            <h3>Liste des réservations</h3>
+                            <p><a href="{{ path('reservation_index') }}" class="btn btn-primary" role="button">Voir les réservations</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://referentiel.nouvelobs.com/file/rw966/15589998.jpg" alt="vols">
+                        <div class="caption">
+                            <h3>Liste des vols</h3>
+                            <p><a href="{{ path('flight_index') }}" class="btn btn-primary" role="button">Voir les vols</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://www.toulouse.aeroport.fr/sites/default/files/contrib/metatag-opengraph/accueil.jpg" alt="aéroport">
+                        <div class="caption">
+                            <h3>Liste des aéroports</h3>
+                            <p><a href="{{ path('site_index') }}" class="btn btn-primary" role="button">Voir les aéroports</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="https://blog.popgom.fr/wp-content/uploads/2015/05/avis-consommateurs.jpg" alt="avis image">
+                        <div class="caption">
+                            <h3>Les avis utilisateurs</h3>
+                            <p><a href="{{ path('review_index') }}" class="btn btn-primary" role="button">Voir les avis</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
 
             <a href="/login" class="btn btn-success" role="button">S'identifier</a>
             <a href="/register" class="btn btn-primary" role="button">Inscription</a>
+
+            <div class="bottompage"></div>
 
 
         </div>
