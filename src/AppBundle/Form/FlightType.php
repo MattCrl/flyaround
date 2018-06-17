@@ -13,8 +13,20 @@ class FlightType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nbFreeSeats')->add('seatPrice')->add('takeOffTime')->add('publicationDate')->add('description')->add('wasDone')->add('departure')->add('pilot')->add('arrival')->add('plane');
-    }/**
+        $builder
+            ->add('nbFreeSeats')
+            ->add('seatPrice')
+            ->add('takeOffTime')
+            ->add('publicationDate')
+            ->add('description')
+            ->add('wasDone')
+            ->add('departure')
+            ->add('pilot')
+            ->add('arrival')
+            ->add('plane');
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

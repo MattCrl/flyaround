@@ -6,6 +6,7 @@ use AppBundle\Entity\Reservation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Service\Mailer;
 
 /**
  * Reservation controller.
@@ -37,7 +38,7 @@ class ReservationController extends Controller
      * @Route("/new", name="reservation_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Mailer $mailer)
     {
         $reservation = new Reservation();
         $form = $this->createForm('AppBundle\Form\ReservationType', $reservation);
@@ -48,7 +49,12 @@ class ReservationController extends Controller
             $em->persist($reservation);
             $em->flush();
 
-            return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
+            $pilot = $reservation->getFlight()->getPilot()->getEmail();
+            $user = $this->getUser()->getEmail();
+
+            $mailer->sendMail($pilot, $user);
+
+            return $this->redirectToRoute('reservation_show', ['id' => $reservation->getId()]);
         }
 
         return $this->render('reservation/new.html.twig', array(
@@ -133,4 +139,5 @@ class ReservationController extends Controller
             ->getForm()
         ;
     }
+
 }

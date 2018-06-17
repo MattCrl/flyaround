@@ -1,6 +1,14 @@
-# Flyaround project
+Flyaround project
 =========
-My first Symfony 3.4 project to learn it.
+WCS 
 
+Premier projet sur Symfony 3.4 (suite de quête).
 
-A Symfony project created on April 16, 2018, 5:59 pm.
+**Objectif :** découvrir et manipuler Symfony
+
+Installation
+===========
+- *composer install*
+- *npm install*
+- *npm run dev*
+- Lancer un serveur, le projet est prêt
