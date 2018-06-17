@@ -21,16 +21,25 @@ class Mailer
         $this->templating = $templating;
     }
 
-    public function sendMail($to, $body)
+    public function sendMail($pilot, $user)
     {
-
         $mail = new \Swift_Message('Flyaround, reservation validation');
         $mail
             ->setFrom('reservations@flyaround.com')
-            ->setTo($to)
-            ->setBody($body, 'text/html');
+            ->setTo($pilot)
+            ->setSubject('Notification de réservation d\'un vol')
+            ->setBody($this->templating->render('mail/pilot-notif-mail.html.twig'),'text/html');
+
+        $this->mailer->send($mail);
+
+        $mail
+            ->setFrom('reservations@flyaround.com')
+            ->setTo($user)
+            ->setSubject('Confirmation de réservation d\'un vol')
+            ->setBody($this->templating->render('mail/user-confirm-mail.html.twig'),'text/html');
 
         $this->mailer->send($mail);
     }
+
 
 }
